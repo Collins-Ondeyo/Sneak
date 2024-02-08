@@ -1,7 +1,7 @@
 "use client"
 
 import clsx from "clsx";
-import { ChevronDown, Search, ShoppingCart, User } from "lucide-react"
+import { ChevronDown, Menu, Search, ShoppingCart, User } from "lucide-react"
 
 import { BannerTypes } from "@/utils/types"
 import { useTopBannersStore } from "@/zustand/useTopBannersStore";
@@ -12,7 +12,7 @@ import { buttonVariants, ButtonInterface } from "../UI/Button"
 
 interface TopBarButton extends ButtonInterface{
     controllBanner: BannerTypes;
-    buttonLabel: "Brands" | "UserIcon" | "ShoppingCartIcon"| "SearchIcon";
+    buttonLabel: "Brands" | "UserIcon" | "ShoppingCartIcon"| "SearchIcon" | "MenuIcon";
 }
 export const TopBarButton = ({ className, variant, size, buttonLabel, controllBanner }: TopBarButton) => {
     const bannerStore = useTopBannersStore();
@@ -25,7 +25,9 @@ export const TopBarButton = ({ className, variant, size, buttonLabel, controllBa
             case "ShoppingCartIcon":
                 return <ShoppingCart />
             case "UserIcon":
-                return <User/>
+                return <User />
+            case "MenuIcon":
+                return <Menu/>
         }
     }
     // open the relevant banner when clicked
@@ -51,7 +53,7 @@ export const TopBarButton = ({ className, variant, size, buttonLabel, controllBa
     }
     const isActive: boolean = bannerStore.activeBanner == controllBanner;
     return (
-        <button className={cn(buttonVariants({ variant, size, className}), clsx("transition-colors duration-200 ease-in-out", {"text-[var(--text-color-decor)]":isActive}))} onClick={openRelBanner}>
+        <button className={cn(buttonVariants({ variant, size, className}), clsx("transition-colors duration-200 ease-in-out", {"text-[var(--text-color-decor)]":isActive && buttonLabel=="Brands"}))} onClick={openRelBanner}>
             {child()}
             {buttonLabel == "Brands" && <ChevronDown className={ clsx("w-[20px] h-[20px] transition-transform duration-200 ease-in-out", {"rotate-180":isActive}) } />}
         </button>

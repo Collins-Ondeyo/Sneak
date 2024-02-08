@@ -19,7 +19,7 @@ export const TopBar = ({
                         <span className="text-3xl text-[var(--text-color-decor)]">.</span>
                     </div>
                     </Link>
-                    <TopBarButton buttonLabel="Brands" controllBanner="BrandsBanner"/>
+                    <TopBarButton buttonLabel="Brands" controllBanner="BrandsBanner" className="hidden sm:flex"/>
                 </div>
 
                 {/* ICONS */}
@@ -27,6 +27,7 @@ export const TopBar = ({
                     <TopBarButton buttonLabel="SearchIcon" controllBanner="SearchBanner" />
                     <TopBarButton buttonLabel="ShoppingCartIcon" controllBanner="CartBanner" />
                     <TopBarButton buttonLabel="UserIcon" controllBanner="UserProfileBanner" />
+                    <TopBarButton buttonLabel="MenuIcon" controllBanner="BrandsBanner" className="sm:hidden"/>
                 </div>
             </MaxWidthWrapper>
         </div>
