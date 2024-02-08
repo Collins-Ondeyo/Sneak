@@ -4,7 +4,6 @@ import { cn } from "@/utils/cn";
 import clsx from "clsx";
 import { MaxWidthWrapper } from "../UI/MaxWidthWrapper";
 
-import { Brands } from "./bannerComponents/Brands";
 import { Cart } from "./bannerComponents/Cart";
 import { Search } from "./bannerComponents/Search";
 import { UserProfile } from "./bannerComponents/UserProfile";
@@ -15,8 +14,6 @@ export const Banner = ({ className }: {
     const bannerStore = useTopBannersStore();
     const child = () => {
         switch (bannerStore.activeBanner) {
-            case "BrandsBanner":
-                return <Brands />
             case "CartBanner":
                 return <Cart />
             case "SearchBanner":
@@ -37,11 +34,9 @@ export const Banner = ({ className }: {
             <div className="w-full h-full absolute top-0 left-0 bg-[rgba(0,0,0,0.3)] backdrop-blur-sm" />
             
             {/* BANNER CONTENT */}
-            <div className="absolute top-0 left-0 h-fit w-full bg-white">
-                <MaxWidthWrapper className="py-2">
-                    {child()}
-                </MaxWidthWrapper>
-            </div>
+            <MaxWidthWrapper className="bg-white absolute h-fit">
+                {child()}
+            </MaxWidthWrapper>
         </div>
     )
 }

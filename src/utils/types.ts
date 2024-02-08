@@ -1,1 +1,1 @@
-export type BannerTypes = "BrandsBanner" | "UserProfileBanner" | "CartBanner" | "SearchBanner"
+export type BannerTypes = "UserProfileBanner" | "CartBanner" | "SearchBanner"

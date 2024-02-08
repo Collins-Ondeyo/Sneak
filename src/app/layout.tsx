@@ -19,10 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative w-[100vw] h-[100vh]`}>
-        <TopBar className="h-[55px] w-full" />
-        <Banner className="h-[calc(100%-55px)] w-full absolute left-0 top-[55px]" />
+      <body className={`${inter.className} w-[100vw] h-[100vh] overflow-hidden`}>
+        <div className="w-full h-full relative overflow-hidden">
+        <TopBar className="h-[55px] w-full"/>
+        <Banner className="h-[calc(100%-55px)] w-full absolute left-0 top-[55px]"/>
         <div className="w-full h-[calc(100%-55px)]">{children}</div>
+        </div>
       </body>
     </html>
   );
